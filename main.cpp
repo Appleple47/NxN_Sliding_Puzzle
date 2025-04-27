@@ -38,7 +38,7 @@ int main(){
             index++;
         }
     }
-    if(isSolvable(numbers, N, N - blankY) || puzzle == answer){
+    if(!isSolvable(numbers, N, blankX) || puzzle == answer){
         cout << "Sorry, you are unlucky to be made unsolvable pazzle. See you!" << endl;
         return 0;
     }
@@ -98,7 +98,7 @@ int main(){
         show(puzzle, N);
         cnt++;
     }
-    cout << "Clear!!" << endl << "You've cleared in " << cnt << "steps." << endl;
+    cout << "Clear!!" << endl << "You've cleared in " << cnt << " steps." << endl;
     return 0;
 }
 
@@ -108,7 +108,7 @@ void show(vector<vector <int> > puzzle, int N){
         for (int j = 0; j < N; j++){
             if(0 < puzzle[i][j] && puzzle[i][j] < 10 && puzzle[i][j] < N * N){
                 cout << " " << puzzle[i][j] << " ";
-            }else if(10 <= puzzle[i][j] && puzzle[i][j] < N * N ){
+            }else if(10 <= puzzle[i][j] && puzzle[i][j] < N * N){
                 cout << puzzle[i][j] << " ";
             }else{
                 cout << "   ";
@@ -132,6 +132,6 @@ bool isSolvable(const vector<int> flat, int N, int blank_row){
     if (N % 2 == 1) {
         return inversions % 2 == 0;
     } else {
-        return (inversions + blank_row) % 2 == 0;
+        return (inversions + blank_row) % 2 == 1;
     }
 }
