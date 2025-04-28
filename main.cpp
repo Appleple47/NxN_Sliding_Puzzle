@@ -21,28 +21,27 @@ int main(){
     for (int i = 0; i < N * N; ++i) {
         numbers[i] = i + 1;
     }
-    srand(time(NULL));
-    for (int i = numbers.size() - 1; i > 0; i--) {
-        int j = rand() % (i + 1);
-        swap(numbers[i], numbers[j]);
-    }
+    bool IsGoodPuzzle = false;
     int index = 0, blankX, blankY;
-    for (int i = 0; i < N; i++){
-        for (int j = 0; j < N; j++){
-            puzzle[i][j] = numbers[index];
-            if(numbers[index] == N * N){
-                blankX = i;
-                blankY = j;
-            }
-            answer[i][j] = N * i + j + 1;
-            index++;
+    while(!IsGoodPuzzle){
+        srand(time(NULL));
+        for (int i = numbers.size() - 1; i > 0; i--) {
+            int j = rand() % (i + 1);
+            swap(numbers[i], numbers[j]);
         }
+        for (int i = 0; i < N; i++){
+            for (int j = 0; j < N; j++){
+                puzzle[i][j] = numbers[index];
+                if(numbers[index] == N * N){
+                    blankX = i;
+                    blankY = j;
+                }
+                answer[i][j] = N * i + j + 1;
+                index++;
+            }
+        }
+        IsGoodPuzzle = isSolvable(numbers, N, blankX) && puzzle != answer;
     }
-    if(!isSolvable(numbers, N, blankX) || puzzle == answer){
-        cout << "Sorry, you are unlucky to be made unsolvable pazzle. See you!" << endl;
-        return 0;
-    }
-
     cout <<"Game Start!" << endl;
     show(puzzle, N);
     int cnt = 0;
