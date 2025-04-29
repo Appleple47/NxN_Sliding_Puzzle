@@ -18,19 +18,19 @@ int main(){
     // Initialize puzzle and goal state (answer), shuffle numbers
     vector<int> numbers(N * N);
     vector<vector <int> > answer(N, vector<int>(N));
-    for (int i = 0; i < N * N; ++i) {
+    for(int i = 0; i < N * N; i++){
         numbers[i] = i + 1;
     }
     bool IsGoodPuzzle = false;
     int index = 0, blankX, blankY;
     while(!IsGoodPuzzle){
         srand(time(NULL));
-        for (int i = numbers.size() - 1; i > 0; i--) {
+        for(int i = numbers.size() - 1; i > 0; i--){
             int j = rand() % (i + 1);
             swap(numbers[i], numbers[j]);
         }
-        for (int i = 0; i < N; i++){
-            for (int j = 0; j < N; j++){
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < N; j++){
                 puzzle[i][j] = numbers[index];
                 if(numbers[index] == N * N){
                     blankX = i;
