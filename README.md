@@ -3,7 +3,7 @@ This is a sorting puzzle game where your goal is to sort the numbers in ascendin
 Just run the program and play the game in your terminal!
 
 ## About
-I'm currently taking a university course called "Artificial Intelligence."＼
+I'm currently taking a university course called "Artificial Intelligence."
 As part of this course, we were given the following assignment:
 
 >>
