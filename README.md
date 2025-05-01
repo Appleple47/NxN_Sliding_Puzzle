@@ -13,3 +13,6 @@ As part of this course, we were given the following assignment:
 ・ 15パズルではどうか︖
 
 This repository contains my implementation of that task.
+
+## Future Plan
+・ またそのデータへの操作としてのオペレータの動き（動作や変化），ゴール探査のためのデータの条件などを（プログラムあるいは⽇本語などの⾔葉で）書いてみる.
