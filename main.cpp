@@ -94,8 +94,10 @@ int main(){
             blankY--;
         }
         cout << endl;
-        show(puzzle, N);
         cnt++;
+        cout << "Steps: " << cnt << endl;
+        show(puzzle, N);
+        cout << endl;
     }
     cout << "Clear!!" << endl << "You've cleared in " << cnt << " steps." << endl;
     return 0;
